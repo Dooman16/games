@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0xddrjep7dyj"
+path="res://.godot/imported/Undertale OST_ 049 - It's Showtime!.mp3-8d0da80afa39de58e0b2c6a8075b955b.mp3str"
+
+[deps]
+
+source_file="res://soundd/Undertale OST_ 049 - It's Showtime!.mp3"
+dest_files=["res://.godot/imported/Undertale OST_ 049 - It's Showtime!.mp3-8d0da80afa39de58e0b2c6a8075b955b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

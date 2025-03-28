@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfat0msasw6kx"]
+
+[ext_resource type="PackedScene" uid="uid://b7no2hke67bhh" path="res://escenas/paleta2.tscn" id="1_p514e"]
+[ext_resource type="Script" uid="uid://bnybpeecr5rcg" path="res://scripts/paleta_3.gd" id="2_0mbt3"]
+
+[node name="paleta3" instance=ExtResource("1_p514e")]
+script = ExtResource("2_0mbt3")
+
+[node name="ColorRect2" parent="." index="2"]
+color = Color(0.376471, 0.305882, 0.0784314, 1)

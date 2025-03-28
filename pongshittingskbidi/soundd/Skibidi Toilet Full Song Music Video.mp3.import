@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvcnjtrd6ftwt"
+path="res://.godot/imported/Skibidi Toilet Full Song Music Video.mp3-ffd69f62fd588369a995f10b7ac8a593.mp3str"
+
+[deps]
+
+source_file="res://soundd/Skibidi Toilet Full Song Music Video.mp3"
+dest_files=["res://.godot/imported/Skibidi Toilet Full Song Music Video.mp3-ffd69f62fd588369a995f10b7ac8a593.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://caalguoor8yfe"]
+
+[ext_resource type="Script" uid="uid://c8msp3t22j73q" path="res://scripts/modo_juego.gd" id="1_6xs6o"]
+[ext_resource type="AudioStream" uid="uid://c0xddrjep7dyj" path="res://soundd/Undertale OST_ 049 - It's Showtime!.mp3" id="2_e4rlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxyi4"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 50.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0980392, 0.0901961, 0.301961, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[node name="modoJuego" type="Node2D"]
+script = ExtResource("1_6xs6o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.200239, 0.123571, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 230.0
+offset_top = 300.0
+offset_right = 922.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxyi4")
+text = "PVP"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxyi4")
+text = "PVE
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 94.0
+offset_right = 776.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 60
+text = "ELEGI MODO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_e4rlr")
+volume_db = 12.0
+parameters/looping = true
+
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

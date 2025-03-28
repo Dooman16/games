@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://com8f3hr74wig"]
+
+[ext_resource type="Script" uid="uid://242hjvpx6mn8" path="res://scripts/juego.gd" id="1_n5myf"]
+[ext_resource type="PackedScene" uid="uid://bc7my7ru42lx3" path="res://escenas/cancha.tscn" id="2_uf0fd"]
+[ext_resource type="PackedScene" uid="uid://i46bf6w3t37f" path="res://escenas/paleta.tscn" id="3_s1l0b"]
+[ext_resource type="PackedScene" uid="uid://tq50wv2nko1s" path="res://escenas/pelota.tscn" id="4_qfdc2"]
+[ext_resource type="Script" uid="uid://cyw04olt6xqfa" path="res://scripts/numero_1.gd" id="6_6nwa0"]
+[ext_resource type="Script" uid="uid://gbp0qwsf1fix" path="res://scripts/numero_2.gd" id="7_eu1no"]
+[ext_resource type="Script" uid="uid://l28r7cfb0mi7" path="res://scripts/timer.gd" id="8_uryky"]
+[ext_resource type="Script" uid="uid://bsc4dnhpuq07x" path="res://scripts/winning_message.gd" id="9_uf0fd"]
+[ext_resource type="Script" uid="uid://bnvm1v2n7wa63" path="res://scripts/loosing_message.gd" id="10_s1l0b"]
+
+[node name="juego" type="Node2D"]
+script = ExtResource("1_n5myf")
+
+[node name="cancha" parent="." instance=ExtResource("2_uf0fd")]
+
+[node name="paleta" parent="." instance=ExtResource("3_s1l0b")]
+position = Vector2(120, 264)
+
+[node name="pelota" parent="." instance=ExtResource("4_qfdc2")]
+position = Vector2(576, 324)
+
+[node name="numero1" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 486.0
+offset_top = 60.0
+offset_right = 526.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+script = ExtResource("6_6nwa0")
+
+[node name="numero2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 626.0
+offset_top = 60.0
+offset_right = 666.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+script = ExtResource("7_eu1no")
+
+[node name="timer" type="Label" parent="."]
+offset_left = 538.0
+offset_top = 326.0
+offset_right = 614.0
+offset_bottom = 697.0
+theme_override_font_sizes/font_size = 134
+text = "3
+"
+script = ExtResource("8_uryky")
+
+[node name="winning message" type="Label" parent="."]
+offset_left = 170.0
+offset_top = 276.0
+offset_right = 524.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 70
+text = "¡GANASTE!"
+vertical_alignment = 1
+script = ExtResource("9_uf0fd")
+
+[node name="loosing message" type="Label" parent="."]
+offset_left = 610.0
+offset_top = 276.0
+offset_right = 964.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 70
+text = "perdiste"
+horizontal_alignment = 1
+script = ExtResource("10_s1l0b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1, 1.778)
+rotation_smoothing_enabled = true
+
+[connection signal="area_entered" from="pelota" to="pelota" method="_on_area_entered"]
+[connection signal="win" from="numero1" to="." method="terminar_juego"]
+[connection signal="win" from="numero2" to="." method="terminar_juego"]

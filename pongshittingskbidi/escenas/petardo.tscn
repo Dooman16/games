@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx24oy0c53753"]
+
+[ext_resource type="PackedScene" uid="uid://tq50wv2nko1s" path="res://escenas/pelota.tscn" id="1_g5uqy"]
+[ext_resource type="Script" uid="uid://cbhifd2mejman" path="res://scripts/petardo.gd" id="2_2r6u2"]
+
+[node name="petardo" instance=ExtResource("1_g5uqy")]
+script = ExtResource("2_2r6u2")

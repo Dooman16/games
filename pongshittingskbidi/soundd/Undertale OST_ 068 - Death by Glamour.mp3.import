@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br67e8cfjuwlh"
+path="res://.godot/imported/Undertale OST_ 068 - Death by Glamour.mp3-524b5c1b255054c2d0e4590b3d4ad334.mp3str"
+
+[deps]
+
+source_file="res://soundd/Undertale OST_ 068 - Death by Glamour.mp3"
+dest_files=["res://.godot/imported/Undertale OST_ 068 - Death by Glamour.mp3-524b5c1b255054c2d0e4590b3d4ad334.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

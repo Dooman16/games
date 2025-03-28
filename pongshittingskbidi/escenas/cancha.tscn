@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc7my7ru42lx3"]
+
+[ext_resource type="Script" uid="uid://5xwqsa88u0od" path="res://scripts/arr.gd" id="1_1iti0"]
+[ext_resource type="Script" uid="uid://cgluewl6etl4v" path="res://scripts/swap_walls.gd" id="1_ilx2b"]
+[ext_resource type="Script" uid="uid://dond7j4qnmrn2" path="res://scripts/aba.gd" id="2_i8e8a"]
+[ext_resource type="Script" uid="uid://dayevtapy74f6" path="res://scripts/der.gd" id="3_of7a7"]
+[ext_resource type="Script" uid="uid://b8ynrxkx8ugu2" path="res://scripts/izq.gd" id="4_b4mcn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv558"]
+size = Vector2(40.4211, 40.5714)
+
+[node name="cancha" type="Node2D"]
+script = ExtResource("1_ilx2b")
+
+[node name="fondo" type="ColorRect" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1112.0
+offset_bottom = 608.0
+color = Color(0.0718918, 0, 0.741794, 1)
+
+[node name="Arr" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("1_1iti0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arr"]
+position = Vector2(576, 20)
+scale = Vector2(28.5, 1)
+shape = SubResource("RectangleShape2D_uv558")
+
+[node name="ColorRect" type="ColorRect" parent="Arr"]
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.213976, 0.20921, 0.685503, 1)
+
+[node name="Aba" type="Area2D" parent="."]
+position = Vector2(0, 608)
+collision_layer = 2
+script = ExtResource("2_i8e8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aba"]
+position = Vector2(576, 20)
+scale = Vector2(28.5, 1)
+shape = SubResource("RectangleShape2D_uv558")
+
+[node name="ColorRect" type="ColorRect" parent="Aba"]
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.215686, 0.207843, 0.686275, 1)
+
+[node name="Der" type="Area2D" parent="."]
+position = Vector2(0, 40)
+collision_layer = 2
+script = ExtResource("3_of7a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Der"]
+position = Vector2(20, 284)
+scale = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_uv558")
+
+[node name="ColorRect" type="ColorRect" parent="Der"]
+offset_right = 40.0
+offset_bottom = 568.0
+color = Color(0.215686, 0.207843, 0.686275, 1)
+
+[node name="Izq" type="Area2D" parent="."]
+position = Vector2(1112, 40)
+collision_layer = 2
+script = ExtResource("4_b4mcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Izq"]
+position = Vector2(20, 284)
+scale = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_uv558")
+
+[node name="ColorRect" type="ColorRect" parent="Izq"]
+offset_right = 40.0
+offset_bottom = 568.0
+color = Color(0.215686, 0.207843, 0.686275, 1)
+
+[connection signal="area_entered" from="Arr" to="Arr" method="_on_area_entered"]
+[connection signal="area_entered" from="Aba" to="Arr" method="_on_area_entered"]
+[connection signal="area_entered" from="Der" to="Der" method="_on_area_entered"]
+[connection signal="area_entered" from="Izq" to="Izq" method="_on_area_entered"]
