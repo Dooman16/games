@@ -6,3 +6,4 @@ some basic games of mine
 -skibidipong v11:
 *missing Phase
 *no "piques" indicator
+game is in spanish
