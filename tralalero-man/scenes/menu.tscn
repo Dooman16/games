@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://wypstaawcua3"]
+
+[ext_resource type="Script" uid="uid://bf8n4wusvhqv7" path="res://code/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://cqjpm464t1f3p" path="res://sprites/tralalero.jpg" id="1_yqeox"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(217.5, 261)
+texture = ExtResource("1_yqeox")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 100.0
+offset_right = 64.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "TRALALEROMAN"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_top = 300.0
+offset_right = 80.5
+offset_bottom = 377.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "JUGAR"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

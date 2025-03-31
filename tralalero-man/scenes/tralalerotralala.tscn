@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c13v7wdjec4ao"]
 
-[ext_resource type="Script" uid="uid://bb88idkyj1248" path="res://scenes/tralalerotralala.gd" id="1_52tf0"]
+[ext_resource type="Script" uid="uid://bb88idkyj1248" path="res://code/tralalerotralala.gd" id="1_52tf0"]
 [ext_resource type="Texture2D" uid="uid://c3gyws2ks320a" path="res://sprites/pacman.png" id="1_kb76h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52tf0"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://cwqfdwnnjre8"]
+[gd_scene load_steps=6 format=4 uid="uid://cwqfdwnnjre8"]
 
+[ext_resource type="Script" uid="uid://c8d37nd8docoo" path="res://code/instantiateEnemies.gd" id="1_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cqa4i0aywyyqk" path="res://sprites/tiles.png" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://c13v7wdjec4ao" path="res://scenes/tralalerotralala.tscn" id="2_paxxb"]
 
@@ -17,6 +18,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_paxxb")
 
 [node name="map" type="Node2D"]
+script = ExtResource("1_0cso3")
 
 [node name="layers" type="Node2D" parent="."]
 
@@ -27,7 +29,6 @@ rendering_quadrant_size = 15
 
 [node name="tralalerotralala" parent="." instance=ExtResource("2_paxxb")]
 position = Vector2(217.5, 360)
-motion_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(217.5, 220)
