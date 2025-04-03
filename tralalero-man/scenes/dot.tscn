@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://sukj536swies"]
+
+[ext_resource type="Script" uid="uid://b7k1ua4ohcu5" path="res://code/dot.gd" id="1_1c7to"]
+[ext_resource type="Texture2D" uid="uid://b4yy1hinbnewx" path="res://sprites/minidot.png" id="1_c4igg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4igg"]
+
+[node name="dot" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1c7to")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c4igg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_c4igg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

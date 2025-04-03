@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cwqfdwnnjre8"]
+[gd_scene load_steps=7 format=4 uid="uid://cwqfdwnnjre8"]
 
 [ext_resource type="Script" uid="uid://c8d37nd8docoo" path="res://code/instantiateEnemies.gd" id="1_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cqa4i0aywyyqk" path="res://sprites/tiles.png" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://c13v7wdjec4ao" path="res://scenes/tralalerotralala.tscn" id="2_paxxb"]
+[ext_resource type="Script" uid="uid://bjnt6co6vj1v7" path="res://code/addPoints.gd" id="4_0cso3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paxxb"]
 texture = ExtResource("1_4xfga")
@@ -32,3 +33,6 @@ position = Vector2(217.5, 360)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(217.5, 220)
+
+[node name="points" type="Node2D" parent="."]
+script = ExtResource("4_0cso3")
