@@ -10,5 +10,7 @@ func _ready() -> void:
 func reset():
 	global_position = Vector2(217.5,360)
 	if GameManager.level > 1:
-		get_node("movement").dir = Vector2.ZERO
-		get_node("movement").next_dir = Vector2.ZERO
+		var mov = get_node("movement")
+		mov.dir = Vector2.ZERO
+		mov.next_dir = Vector2.ZERO
+		mov.set_process(true)

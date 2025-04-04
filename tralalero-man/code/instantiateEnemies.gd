@@ -52,8 +52,11 @@ func change_lvl():
 	
 	for i in enemies:
 		i.set_process(false)
+	$tralalerotralala.get_child(2).set_process(false)
+	
 	#animacion ganar
 	GameManager.level += 1
 	await get_tree().create_timer(2.0).timeout
 	Matrix.reset()
+	
 	set_up()

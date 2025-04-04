@@ -25,6 +25,10 @@ func _ready() -> void:
 
 func reset():
 	global_position = Vector2(217.5,225)
+	dir = Vector2.ZERO
+	next_dir = Vector2.ZERO
+	mode = 0
+	attack_mode = 0
 	movement.target = door[1]
 	change_door(false)
 	time = max_time
@@ -35,7 +39,6 @@ func _process(delta: float) -> void:
 		change_target()
 	else:
 		time -= delta
-	print(mode)
 	define_direction()
 	move(delta)
 	godot.global_position = movement.target
@@ -118,7 +121,6 @@ func change_target() -> void:
 				0:
 					change_door(false)
 					dir = Vector2(-1 if randi() % 2 == 0 else 1,0)
-					print(dir.lerp(Vector2(200,200),0.1))
 				2:
 					attack_mode = 0
 					dir *= -1
