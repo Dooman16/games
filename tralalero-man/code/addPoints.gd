@@ -9,7 +9,7 @@ func start() -> void:
 	
 	for y in Matrix.mat.size():
 		for x in Matrix.mat[y].size():
-			if(Matrix.mat[y][x] == 1):
+			if(Matrix.mat[y][x] == 10):
 				counter += 1
 				var dot_instance = dot.instantiate()
 				dot_instance.global_position = Vector2(x*15,y*15)

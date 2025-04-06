@@ -5,13 +5,13 @@ var target : Vector2
 
 func _ready() -> void:
 	get_node("/root/map/elCactoHipopotamo/Sprite2D").texture = load("res://sprites/orange.jpg")
-	get_node("/root/map/elCactoHipopotamo").global_scale = Vector2(1,1)*(0.35) 
+	get_node("/root/map/elCactoHipopotamo/Sprite2D").global_scale = Vector2(1,1)*(0.035) 
 
 func _process(delta: float) -> void:
 	Cactos_mysterius_tactics()
 
 func Cactos_mysterius_tactics():
-	if get_parent().mode == 2:
+	if get_parent().mode == 3:
 		if security_device_verification():
 			target = player.global_position
 		else:

@@ -6,10 +6,10 @@ var edge
 
 func _ready() -> void:
 	get_node("/root/map/trulimeroTrulichina/Sprite2D").texture = load("res://sprites/pink.png")
-	get_node("/root/map/trulimeroTrulichina").global_scale = Vector2(1,1)*(0.36)
+	get_node("/root/map/trulimeroTrulichina/Sprite2D").global_scale = Vector2(1,1)*(0.036)
 
 func _process(delta: float) -> void:
-	if get_parent().mode == 2:
+	if get_parent().mode == 3:
 		trulimeros_strategy_localizer()
 
 func trulimeros_strategy_localizer() -> void:	

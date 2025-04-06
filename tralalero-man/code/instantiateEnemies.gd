@@ -53,10 +53,23 @@ func change_lvl():
 	for i in enemies:
 		i.set_process(false)
 	$tralalerotralala.get_child(2).set_process(false)
-	
+	$bombardilo.get_child(2).emergency = false
 	#animacion ganar
 	GameManager.level += 1
 	await get_tree().create_timer(2.0).timeout
 	Matrix.reset()
 	
 	set_up()
+	
+
+
+
+func _on_timer_timeout() -> void:
+	for e in enemies:
+		if e.mode == 3:
+			e.change_target()
+
+
+func _on_timer_scatter_timeout() -> void:
+	for e in enemies:
+		e.attack_mode = GameManager.index % 2

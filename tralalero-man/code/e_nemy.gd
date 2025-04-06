@@ -9,7 +9,7 @@ var distance := 0.0
 var jump : = 7.5
 var matrix := Matrix.mat
 var door := [Vector2(217.5,180),Vector2(217.5,225)]
-var mode := 0
+var mode := 1
 var attack_mode := 0
 var godot
 var edge : Vector2
@@ -27,7 +27,7 @@ func reset():
 	global_position = Vector2(217.5,225)
 	dir = Vector2.ZERO
 	next_dir = Vector2.ZERO
-	mode = 0
+	mode = 1
 	attack_mode = 0
 	movement.target = door[1]
 	change_door(false)
@@ -35,7 +35,7 @@ func reset():
 	set_process(true)
 
 func _process(delta: float) -> void:
-	if(position == movement.target and mode != 2 and time <= 0):
+	if(position == movement.target and mode != 3 and time <= 0):
 		change_target()
 	else:
 		time -= delta
@@ -58,13 +58,27 @@ func _round():
 	global_position = pos
 	
 func define_direction() -> void:
-	if mode % 2 == 0:
+	if mode % 3 == 0:
 		if is_aligned():
 			manage_special_cases()
-			choose_next_dir()
+			if attack_mode != 2:
+				choose_next_dir()
+			else:
+				random_dir()
 			dir = next_dir
-	else:
+	elif mode != 1 or global_position.y < door[1].y :
 		dir = Vector2.DOWN if movement.target == door[1] else Vector2.UP
+
+func random_dir():
+	var pos = global_position
+	var aux_dirs = []
+	for dire in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]:
+		if check_wall(pos + dire*15) and dire*(-1) != dir:
+			aux_dirs.push_front(dire)
+	if aux_dirs.size() == 0:
+		next_dir = dir
+	else:
+		next_dir = aux_dirs[randi() % aux_dirs.size()]	
 
 func choose_next_dir():
 	var pos = global_position
@@ -107,30 +121,33 @@ func change_door(open : bool) -> void:
 	matrix[14][15] = door_value
 
 func change_target() -> void:
-	if mode != 2:	
-		mode = (mode + 1 % 3)
+	if mode != 3:	
+		if mode == 2:
+			dir = Vector2(-1 if randi() % 2 == 0 else 1,0)
+		mode = ((mode + 1) % 4)
 	match mode:
 		0:
 			change_door(true)
-			movement.target = door[1]
+			movement.target = door[0]
 			attack_mode = 0
 		1: 
-			movement.target = door[0]
+			change_door(true)
+			movement.target = door[1]
 		2:
+			movement.target = door[0]
+		3:
 			match attack_mode:
 				0:
 					change_door(false)
-					dir = Vector2(-1 if randi() % 2 == 0 else 1,0)
+					
 				2:
 					attack_mode = 0
 					dir *= -1
 
 func _on_area_entered(area: Area2D) -> void:
-	if(mode == 2):
+	if(mode == 3):
 		if(attack_mode == 2):
-			attack_mode = 0
-			mode = -1
+			mode = 7 # this is to change to mode = 0
 			change_target()
-		else:
-			pass
-			#get_node("/root/map").game_over()
+		else:  
+			get_node("/root/map").game_over()

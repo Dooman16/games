@@ -9,10 +9,10 @@ var godot
 
 func _ready() -> void:
 	get_node("/root/map/laVacaSaturnita/Sprite2D").texture = load("res://sprites/bluee.jpg")
-	get_node("/root/map/laVacaSaturnita").global_scale = Vector2(1,1)*0.1125
+	get_node("/root/map/laVacaSaturnita/Sprite2D").global_scale = Vector2(1,1)*0.01125
 
 func _process(delta: float) -> void:
-	if get_parent().mode == 2:
+	if get_parent().mode == 3:
 		saturnita_saturnos_high_iq_targetitia()
 
 func saturnita_saturnos_high_iq_targetitia() -> void:	
