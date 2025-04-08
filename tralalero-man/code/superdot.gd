@@ -1,6 +1,7 @@
 extends Area2D
 
 func _on_area_entered(area: Area2D) -> void:
+	print("hola")
 	get_node("/root/map/score").add_points(50)
 	get_parent().reduce()
 	queue_free()

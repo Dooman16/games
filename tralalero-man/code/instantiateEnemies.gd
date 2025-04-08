@@ -17,10 +17,12 @@ func _ready() -> void:
 	set_up()
 
 func set_up():
+	GameManager.index = 0
 	for i in enemies:
 		i.reset()
 	$points.start()
 	$tralalerotralala.reset()
+	$TimerScatter.set_timer(GameManager.get_time())
 
 func instantiateEnemies():
 	bombardillo.name = "bombardilo"
@@ -34,7 +36,7 @@ func instantiateEnemies():
 	trulimeroTrulichina.max_time = 2
 	Cacto.name = "elCactoHipopotamo"
 	Cacto.enemy = "elCactoHipopotamo"
-	Cacto.max_time = 10
+	Cacto.max_time = 6
 	add_child(bombardillo)
 	add_child(laVacaSaturnita)
 	add_child(trulimeroTrulichina)
@@ -72,4 +74,9 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_scatter_timeout() -> void:
 	for e in enemies:
-		e.attack_mode = GameManager.index % 2
+		if e.attack_mode != 2:
+			e.attack_mode = (GameManager.index) % 2
+	print(GameManager.index)
+	GameManager.index += 1
+	if GameManager.index < 7:
+		$TimerScatter.set_timer(GameManager.get_time())

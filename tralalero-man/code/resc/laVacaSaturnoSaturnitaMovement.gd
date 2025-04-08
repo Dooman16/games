@@ -6,6 +6,7 @@ extends Node
 
 var target : Vector2
 var godot
+const edge : Vector2 = Vector2(390,540)
 
 func _ready() -> void:
 	get_node("/root/map/laVacaSaturnita/Sprite2D").texture = load("res://sprites/bluee.jpg")

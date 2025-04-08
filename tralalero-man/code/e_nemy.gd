@@ -10,9 +10,8 @@ var jump : = 7.5
 var matrix := Matrix.mat
 var door := [Vector2(217.5,180),Vector2(217.5,225)]
 var mode := 1
-var attack_mode := 0
+var attack_mode := 1
 var godot
-var edge : Vector2
 var time := 0.0
 var max_time : float
 
@@ -28,7 +27,7 @@ func reset():
 	dir = Vector2.ZERO
 	next_dir = Vector2.ZERO
 	mode = 1
-	attack_mode = 0
+	attack_mode = 1
 	movement.target = door[1]
 	change_door(false)
 	time = max_time
@@ -127,7 +126,6 @@ func change_target() -> void:
 		mode = ((mode + 1) % 4)
 	match mode:
 		0:
-			change_door(true)
 			movement.target = door[0]
 			attack_mode = 0
 		1: 
@@ -139,7 +137,6 @@ func change_target() -> void:
 			match attack_mode:
 				0:
 					change_door(false)
-					
 				2:
 					attack_mode = 0
 					dir *= -1

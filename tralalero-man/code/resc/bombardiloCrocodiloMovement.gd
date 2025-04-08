@@ -3,10 +3,15 @@ extends Node
 @onready var player := get_node("/root/map/tralalerotralala")
 var target : Vector2
 var emergency : bool = false
+const edge : Vector2 = Vector2(390,-60)
 
 func _process(delta: float) -> void:
-	if get_parent().mode == 3:
-		target = player.global_position
+	var parent = get_parent()
+	if parent.mode == 3:
+		if parent.attack_mode == 0:
+			target = player.global_position
+		else:
+			target = edge
 	if not emergency:
 		bombardillos_emergency_agression()
 	
