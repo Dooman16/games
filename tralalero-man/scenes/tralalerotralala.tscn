@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://c13v7wdjec4ao"]
+[gd_scene load_steps=9 format=3 uid="uid://c13v7wdjec4ao"]
 
 [ext_resource type="Script" uid="uid://bb88idkyj1248" path="res://code/tralalerotralala.gd" id="1_52tf0"]
-[ext_resource type="Texture2D" uid="uid://c3gyws2ks320a" path="res://sprites/pacman.png" id="1_kb76h"]
+[ext_resource type="Texture2D" uid="uid://cwhattjq6xkdw" path="res://sprites/tralaleroTralalaSIDES.png" id="3_4tvmg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52tf0"]
 radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52tf0"]
+atlas = ExtResource("3_4tvmg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tvmg"]
+atlas = ExtResource("3_4tvmg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h557"]
+atlas = ExtResource("3_4tvmg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlg70"]
+atlas = ExtResource("3_4tvmg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h557"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52tf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tvmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h557")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlg70")
+}],
+"loop": true,
+"name": &"side",
+"speed": 8.0
+}]
 
 [node name="tralalerotralala" type="Area2D"]
 collision_layer = 3
@@ -14,8 +50,11 @@ script = ExtResource("1_52tf0")
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_52tf0")
 
-[node name="Pacman" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_kb76h")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_5h557")
+animation = &"side"
+frame = 2
+frame_progress = 0.870879
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

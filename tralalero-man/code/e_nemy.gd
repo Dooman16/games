@@ -11,15 +11,14 @@ var matrix := Matrix.mat
 var door := [Vector2(217.5,180),Vector2(217.5,225)]
 var mode := 1
 var attack_mode := 1
-var godot
 var time := 0.0
 var max_time : float
+@onready var animation : AnimatedSprite2D = $AnimatedSprite2D
+var eaten: bool = false
 
 func _ready() -> void:
 	movement = load("res://code/resc/"+enemy+"Movement.gd").new()
 	add_child(movement)
-	godot = preload("res://scenes/godot.tscn").instantiate()
-	get_node("/root/map").add_child(godot)
 	reset()
 
 func reset():
@@ -40,7 +39,6 @@ func _process(delta: float) -> void:
 		time -= delta
 	define_direction()
 	move(delta)
-	godot.global_position = movement.target
 
 func move(delta):
 	if dir != Vector2.ZERO:
@@ -112,14 +110,14 @@ func check_wall(pos:Vector2) -> bool:
 	var y = pos.y/15
 	return (x>= 0 and x <= 29 and y >= 0 and y <= 31) and matrix[y][x] % 2 == 1
 
-func change_door(open : bool) -> void:
+func change_door(open : bool) -> void:#opens and closes de spawn door
 	var door_value = 5 if open else 0
 	matrix[13][14] = door_value
 	matrix[13][15] = door_value
 	matrix[14][14] = door_value
 	matrix[14][15] = door_value
 
-func change_target() -> void:
+func change_target() -> void:#allows the enemy to change target
 	if mode != 3:	
 		if mode == 2:
 			dir = Vector2(-1 if randi() % 2 == 0 else 1,0)
@@ -141,9 +139,14 @@ func change_target() -> void:
 					attack_mode = 0
 					dir *= -1
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void:#manage collisions
+	var points = 200
 	if(mode == 3):
 		if(attack_mode == 2):
+			$gulp.play()
+			eaten = true
+			points *= get_parent().check_eaten_ghosts_amount()
+			get_node("/root/map/score").add_points(points)
 			mode = 7 # this is to change to mode = 0
 			change_target()
 		else:  

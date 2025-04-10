@@ -6,6 +6,7 @@ var next_dir := Vector2.ZERO
 var speed : = 120
 var distance := 0.0
 var matrix := Matrix.mat
+var animation : AnimatedSprite2D
 
 func _input(event: InputEvent) -> void:
 	match event.as_text():
@@ -16,11 +17,13 @@ func _input(event: InputEvent) -> void:
 		"S":
 			next_dir = Vector2.DOWN
 		"D":
+			
 			next_dir = Vector2.RIGHT
 
 func _process(delta: float) -> void:
 	define_direction()
 	move(delta)
+	update_animations()
 
 func move(delta):
 	if dir != Vector2.ZERO:
@@ -29,6 +32,15 @@ func move(delta):
 		if distance >= jump:
 			_round()
 			distance = 0
+
+func update_animations():
+	match dir:
+		Vector2.RIGHT:
+			animation.play("side")
+			animation.flip_h = true
+		Vector2.LEFT:
+			animation.play("side")
+			animation.flip_h =false
 
 func define_direction() -> void:
 	if is_aligned():

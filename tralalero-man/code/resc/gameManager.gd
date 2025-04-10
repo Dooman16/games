@@ -8,3 +8,7 @@ var index = 0
 
 func get_time():
 	return times[0 if level < 2 else (1 if level < 5 else 2)][index]
+
+func reset():
+	level = 1
+	index = 0

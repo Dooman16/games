@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2kp580ey7f4r"]
+
+[ext_resource type="Script" uid="uid://cvt6h3ydhdvo4" path="res://code/game_sttings.gd" id="1_sdpd1"]
+[ext_resource type="AudioStream" uid="uid://cig472n0clwy" path="res://sound/Tung Tung Tung Sahur #meme #memes #memesdaily #memesvideo.mp3" id="2_3fp4u"]
+[ext_resource type="Texture2D" uid="uid://dle82x0o466k3" path="res://sprites/sahur.jpg" id="3_8mqur"]
+
+[node name="sttings" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sdpd1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+color = Color(0.194349, 0.194349, 0.194349, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -240.0
+offset_top = -100.0
+offset_right = 240.0
+offset_bottom = 17.0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="master" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="sound" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="music" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 55.0
+offset_right = 28.0
+offset_bottom = 86.0
+text = "close"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 33.0
+offset_right = 198.0
+offset_bottom = 89.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button2"]
+position = Vector2(-144, -33)
+stream = ExtResource("2_3fp4u")
+volume_db = 8.0
+bus = &"music"
+
+[node name="Sahur" type="Sprite2D" parent="."]
+position = Vector2(171, 61)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_8mqur")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 19.0
+offset_right = 139.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 10
+text = "CALL TUNG 
+TUNG 
+SAHUR 
+FOR HELP!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="VBoxContainer/master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/sound" to="." method="_on_sonido_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/music" to="." method="_on_musica_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

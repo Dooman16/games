@@ -12,9 +12,14 @@ var Cacto : Area2D = preload("res://scenes/eNemy.tscn").instantiate()
 ]
 
 func _ready() -> void:
-	
+	$sttings.hide()
 	instantiateEnemies()
+	
 	set_up()
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("esc"):
+		_pause()
 
 func set_up():
 	GameManager.index = 0
@@ -41,26 +46,35 @@ func instantiateEnemies():
 	add_child(laVacaSaturnita)
 	add_child(trulimeroTrulichina)
 	add_child(Cacto)
+	var stt = $sttings
+	remove_child(stt)
+	add_child(stt)
 	
 func game_over():
 	for i in enemies:
 		i.set_process(false)
 	#animacion muerte?
+	$tralalerotralala/movement.set_process(false)
+	print($tralalerotralala/movement.is_processing())
 	await get_tree().create_timer(2.0).timeout
+	end_game()
+	
+func end_game():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	Matrix.reset()
+	GameManager.reset()
 	
 func change_lvl():
 	
 	for i in enemies:
 		i.set_process(false)
 	$tralalerotralala.get_child(2).set_process(false)
-	$bombardilo.get_child(2).emergency = false
+	$bombardilo.get_child(4).emergency = false
 	#animacion ganar
 	GameManager.level += 1
 	await get_tree().create_timer(2.0).timeout
 	Matrix.reset()
-	
+	$level.change_level()
 	set_up()
 	
 
@@ -68,6 +82,7 @@ func change_lvl():
 
 func _on_timer_timeout() -> void:
 	for e in enemies:
+		e.eaten = false
 		if e.mode == 3:
 			e.change_target()
 
@@ -80,3 +95,14 @@ func _on_timer_scatter_timeout() -> void:
 	GameManager.index += 1
 	if GameManager.index < 7:
 		$TimerScatter.set_timer(GameManager.get_time())
+
+func _pause():
+	get_tree().paused = !get_tree().paused
+	$sttings.visible = get_tree().paused
+
+func check_eaten_ghosts_amount():
+	var count = 0
+	for e in enemies:
+		if e.eaten:
+			count += 1
+	return count
