@@ -41,7 +41,7 @@ func instantiateEnemies():
 	trulimeroTrulichina.max_time = 2
 	Cacto.name = "elCactoHipopotamo"
 	Cacto.enemy = "elCactoHipopotamo"
-	Cacto.max_time = 6
+	Cacto.max_time = 10
 	add_child(bombardillo)
 	add_child(laVacaSaturnita)
 	add_child(trulimeroTrulichina)
@@ -55,7 +55,6 @@ func game_over():
 		i.set_process(false)
 	#animacion muerte?
 	$tralalerotralala/movement.set_process(false)
-	print($tralalerotralala/movement.is_processing())
 	await get_tree().create_timer(2.0).timeout
 	end_game()
 	
@@ -91,7 +90,6 @@ func _on_timer_scatter_timeout() -> void:
 	for e in enemies:
 		if e.attack_mode != 2:
 			e.attack_mode = (GameManager.index) % 2
-	print(GameManager.index)
 	GameManager.index += 1
 	if GameManager.index < 7:
 		$TimerScatter.set_timer(GameManager.get_time())

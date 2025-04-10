@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wypstaawcua3"]
 
 [ext_resource type="Script" uid="uid://bf8n4wusvhqv7" path="res://code/menu.gd" id="1_vjb58"]
-[ext_resource type="Texture2D" uid="uid://cqjpm464t1f3p" path="res://sprites/tralalero.jpg" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://g0pn5yih2xla" path="res://sprites/tralalero.png" id="2_con2f"]
 [ext_resource type="AudioStream" uid="uid://3r3ucr0ai8mv" path="res://sound/TRALALERO TRALALA   Letra en español_.mp3" id="3_con2f"]
 
 [node name="Control" type="Control"]
@@ -15,7 +15,7 @@ script = ExtResource("1_vjb58")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(217.5, 261)
-texture = ExtResource("1_yqeox")
+texture = ExtResource("2_con2f")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ offset_bottom = 123.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "TRALALEROMAN"
+text = "TRALALEROMAN!!!"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -58,6 +58,16 @@ volume_db = 8.0
 autoplay = true
 bus = &"music"
 parameters/looping = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 418.0
+offset_right = 154.0
+offset_bottom = 441.0
+rotation = 0.349066
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Best Game Ever!"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

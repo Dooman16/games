@@ -9,8 +9,7 @@ var godot
 const edge : Vector2 = Vector2(390,540)
 
 func _ready() -> void:
-	get_node("/root/map/laVacaSaturnita/Sprite2D").texture = load("res://sprites/bluee.jpg")
-	get_node("/root/map/laVacaSaturnita/Sprite2D").global_scale = Vector2(1,1)*0.01125
+	get_node("/root/map/laVacaSaturnita/AnimatedSprite2D").sprite_frames = load("res://animation/VacaSaturnita.tres")
 
 func _process(delta: float) -> void:
 	if get_parent().mode == 3:

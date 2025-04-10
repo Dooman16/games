@@ -5,8 +5,7 @@ var target : Vector2
 const edge : Vector2 = Vector2(45,540)
 
 func _ready() -> void:
-	get_node("/root/map/elCactoHipopotamo/Sprite2D").texture = load("res://sprites/orange.jpg")
-	get_node("/root/map/elCactoHipopotamo/Sprite2D").global_scale = Vector2(1,1)*(0.035) 
+	get_node("/root/map/elCactoHipopotamo/AnimatedSprite2D").sprite_frames = load("res://animation/cactoHipopotamo.tres")
 
 func _process(delta: float) -> void:
 	

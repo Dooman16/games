@@ -24,8 +24,6 @@ GameManager="*res://code/resc/gameManager.gd"
 
 window/size/viewport_width=435
 window/size/viewport_height=522
-window/size/window_width_override=684
-window/size/window_height_override=820
 window/stretch/mode="canvas_items"
 
 [input]

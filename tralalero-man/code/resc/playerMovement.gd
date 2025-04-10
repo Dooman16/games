@@ -17,7 +17,6 @@ func _input(event: InputEvent) -> void:
 		"S":
 			next_dir = Vector2.DOWN
 		"D":
-			
 			next_dir = Vector2.RIGHT
 
 func _process(delta: float) -> void:
@@ -41,6 +40,13 @@ func update_animations():
 		Vector2.LEFT:
 			animation.play("side")
 			animation.flip_h =false
+		Vector2.UP:
+			animation.play("up")
+		Vector2.DOWN:
+			animation.play("down")
+		Vector2.ZERO:
+			animation.play("side")
+			animation.flip_h = false
 
 func define_direction() -> void:
 	if is_aligned():

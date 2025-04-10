@@ -1,10 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://c13v7wdjec4ao"]
+[gd_scene load_steps=19 format=3 uid="uid://c13v7wdjec4ao"]
 
 [ext_resource type="Script" uid="uid://bb88idkyj1248" path="res://code/tralalerotralala.gd" id="1_52tf0"]
+[ext_resource type="Texture2D" uid="uid://morcgt7gh6bf" path="res://sprites/tralaleroTralalaDOWN.png" id="2_5h557"]
 [ext_resource type="Texture2D" uid="uid://cwhattjq6xkdw" path="res://sprites/tralaleroTralalaSIDES.png" id="3_4tvmg"]
+[ext_resource type="Texture2D" uid="uid://c2lontqae7rh3" path="res://sprites/tralaleroTralalaUP.png" id="4_wlg70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52tf0"]
 radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jenfw"]
+atlas = ExtResource("2_5h557")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sul3k"]
+atlas = ExtResource("2_5h557")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nhma"]
+atlas = ExtResource("2_5h557")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbliu"]
+atlas = ExtResource("2_5h557")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52tf0"]
 atlas = ExtResource("3_4tvmg")
@@ -22,8 +40,41 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("3_4tvmg")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxjkx"]
+atlas = ExtResource("4_wlg70")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dabem"]
+atlas = ExtResource("4_wlg70")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij83k"]
+atlas = ExtResource("4_wlg70")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrgq"]
+atlas = ExtResource("4_wlg70")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5h557"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jenfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sul3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nhma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbliu")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_52tf0")
@@ -40,6 +91,23 @@ animations = [{
 "loop": true,
 "name": &"side",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxjkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dabem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij83k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trrgq")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
 }]
 
 [node name="tralalerotralala" type="Area2D"]
@@ -53,8 +121,6 @@ shape = SubResource("CircleShape2D_52tf0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_5h557")
-animation = &"side"
-frame = 2
-frame_progress = 0.870879
+animation = &"up"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

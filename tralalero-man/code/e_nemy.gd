@@ -39,6 +39,13 @@ func _process(delta: float) -> void:
 		time -= delta
 	define_direction()
 	move(delta)
+	update_animations()
+	if attack_mode == 2:
+		animation.modulate = Color(0.15,0.15,1,1)
+	elif mode == 0:
+		animation.modulate = Color(1,1,1,0.6)
+	else:
+		animation.modulate = Color(1,1,1,1)
 
 func move(delta):
 	if dir != Vector2.ZERO:
@@ -47,6 +54,22 @@ func move(delta):
 		if distance >= jump:
 			_round()
 			distance = 0
+
+func update_animations():
+	match dir:
+		Vector2.RIGHT:
+			animation.play("side")
+			animation.flip_h = true
+		Vector2.LEFT:
+			animation.play("side")
+			animation.flip_h =false
+		Vector2.UP:
+			animation.play("up")
+		Vector2.DOWN:
+			animation.play("down")
+		Vector2.ZERO:
+			animation.play("side")
+			animation.flip_h = false
 
 func _round():
 	var pos = global_position
@@ -94,7 +117,7 @@ func is_aligned() -> bool:
 	var pos = global_position
 	return (fmod(pos.x, jump*2) <= 0) and (fmod(pos.y, jump*2) <= 0)
 
-func manage_special_cases() -> void:
+func manage_special_cases() -> void: #checks right and left doors
 	var pos = global_position
 	if(not check_wall(pos + dir*15)):
 		var x = int(pos.x/15)
@@ -145,8 +168,10 @@ func _on_area_entered(area: Area2D) -> void:#manage collisions
 		if(attack_mode == 2):
 			$gulp.play()
 			eaten = true
-			points *= get_parent().check_eaten_ghosts_amount()
+			var power = get_parent().check_eaten_ghosts_amount()-1
+			points *= pow(2,power)
 			get_node("/root/map/score").add_points(points)
+			$points.execute(points)
 			mode = 7 # this is to change to mode = 0
 			change_target()
 		else:  

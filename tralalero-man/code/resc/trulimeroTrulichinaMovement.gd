@@ -5,8 +5,7 @@ var target : Vector2
 const edge : Vector2 = Vector2(45,-60)
 
 func _ready() -> void:
-	get_node("/root/map/trulimeroTrulichina/Sprite2D").texture = load("res://sprites/pink.png")
-	get_node("/root/map/trulimeroTrulichina/Sprite2D").global_scale = Vector2(1,1)*(0.036)
+	get_node("/root/map/trulimeroTrulichina/AnimatedSprite2D").sprite_frames = load("res://animation/trulimeroTrulichina.tres")
 
 func _process(delta: float) -> void:
 	var parent = get_parent()
