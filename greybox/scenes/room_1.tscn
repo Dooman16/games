@@ -1,0 +1,147 @@
+[gd_scene load_steps=8 format=3 uid="uid://s1lsx28jpvw4"]
+
+[ext_resource type="Texture2D" uid="uid://dmfsiyiu38a4l" path="res://sprites/room1.png" id="1_0akh5"]
+[ext_resource type="Script" uid="uid://ckscaivosooui" path="res://scenes/room_1.gd" id="1_d0u7m"]
+[ext_resource type="Texture2D" uid="uid://dt5ujkc1rmwrs" path="res://sprites/room1 decorations1.png" id="2_d0u7m"]
+[ext_resource type="Texture2D" uid="uid://cl2breefon3jk" path="res://sprites/red carpet.png" id="3_3wwl0"]
+[ext_resource type="Texture2D" uid="uid://7qf66o8mw5nj" path="res://sprites/drawer door closed.png" id="4_wy464"]
+[ext_resource type="Texture2D" uid="uid://bm3g1kjdfj3e3" path="res://sprites/rolled carpet.png" id="5_4wlnl"]
+[ext_resource type="Texture2D" uid="uid://d3oqeg32ns8ns" path="res://sprites/drawer door open.png" id="6_k86bo"]
+
+[node name="Room1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d0u7m")
+
+[node name="room" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_0akh5")
+
+[node name="deco1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_d0u7m")
+
+[node name="keyblock" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 513.0
+offset_top = 534.0
+offset_right = 590.0
+offset_bottom = 574.0
+color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[node name="carpet" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 482.0
+offset_right = 7172.0
+offset_bottom = 3722.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_3wwl0")
+
+[node name="DrawerDoorClosed" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 164.0
+offset_right = 1259.0
+offset_bottom = 1573.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_wy464")
+
+[node name="RolledCarpet" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 406.0
+offset_top = 488.0
+offset_right = 772.0
+offset_bottom = 1067.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_4wlnl")
+
+[node name="DrawerDoorOpen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 667.0
+offset_top = 165.0
+offset_right = 1144.0
+offset_bottom = 1727.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_k86bo")
+
+[node name="keydrop" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 971.0
+offset_top = 355.0
+offset_right = 1026.0
+offset_bottom = 420.0
+scale = Vector2(0.2, 0.2)
+color = Color(0.454902, 0.270588, 0.0980392, 1)
+
+[node name="carpet2" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 456.0
+offset_top = 502.0
+offset_right = 701.0
+offset_bottom = 600.0
+
+[node name="drawer" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 754.0
+offset_top = 166.0
+offset_right = 851.0
+offset_bottom = 444.0
+
+[node name="key" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 526.0
+offset_top = 543.0
+offset_right = 582.0
+offset_bottom = 569.0
+
+[node name="door" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 965.0
+offset_top = 191.0
+offset_right = 1084.0
+offset_bottom = 494.0
+
+[node name="door2" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 991.0
+offset_top = 437.0
+offset_right = 1145.0
+offset_bottom = 524.0
+rotation = 0.539307
+
+[node name="keyhole" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 970.0
+offset_top = 354.0
+offset_right = 982.0
+offset_bottom = 370.0
+
+[connection signal="pressed" from="carpet2" to="." method="_on_carpet_2_pressed"]
+[connection signal="pressed" from="drawer" to="." method="_on_drawer_pressed"]
+[connection signal="pressed" from="key" to="." method="_on_key_pressed"]
+[connection signal="pressed" from="door" to="." method="_on_door_pressed"]
+[connection signal="pressed" from="door2" to="." method="_on_door_pressed"]
+[connection signal="pressed" from="keyhole" to="." method="_on_keyhole_pressed"]

@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=3 uid="uid://dw0hks1vgndll"]
+
+[ext_resource type="Script" uid="uid://dc0icbsbeqn5p" path="res://scenes/baby_room.gd" id="1_ghbtd"]
+[ext_resource type="Texture2D" uid="uid://f1wqdw1hfqa" path="res://sprites/babyRoom.png" id="2_y5ahb"]
+[ext_resource type="Texture2D" uid="uid://d3n3kd03wjwy7" path="res://sprites/babyRoom key.png" id="3_5cefy"]
+[ext_resource type="Texture2D" uid="uid://djwlmhlufwqvm" path="res://sprites/babyRoom decorations1.png" id="4_4nwwi"]
+[ext_resource type="Texture2D" uid="uid://da1hm5jamvvv0" path="res://sprites/babyRoom decorations2.png" id="5_qbxfy"]
+[ext_resource type="Texture2D" uid="uid://bn444gc27oe1p" path="res://sprites/babyRoom decorations3.png" id="6_nh6mk"]
+[ext_resource type="Texture2D" uid="uid://qvtadr4hcwna" path="res://sprites/babyRoom decorations4.png" id="7_s82gi"]
+[ext_resource type="Texture2D" uid="uid://ch5bquma0e8u" path="res://sprites/keyhole.png" id="8_gsi68"]
+
+[node name="babyRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ghbtd")
+
+[node name="backrgound" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_y5ahb")
+
+[node name="key" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 889.0
+offset_top = 510.15
+offset_right = 1005.0
+offset_bottom = 572.15
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5cefy")
+
+[node name="deco1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 5760.0
+offset_bottom = 3240.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_4nwwi")
+
+[node name="deco2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 5760.0
+offset_bottom = 3240.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_qbxfy")
+
+[node name="b1" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 229.0
+offset_top = 449.0
+offset_right = 241.0
+offset_bottom = 461.0
+
+[node name="b2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 296.0
+offset_top = 398.0
+offset_right = 304.0
+offset_bottom = 407.0
+
+[node name="deco3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_nh6mk")
+
+[node name="deco4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 494.0
+offset_right = 1078.0
+offset_bottom = 691.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_s82gi")
+
+[node name="Keyhole" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 967.0
+offset_top = 349.0
+offset_right = 1061.0
+offset_bottom = 488.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_gsi68")
+
+[node name="screw" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 229.0
+offset_top = 449.0
+offset_right = 239.0
+offset_bottom = 460.0
+
+[node name="screw2" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 296.0
+offset_top = 398.0
+offset_right = 304.0
+offset_bottom = 407.0
+
+[node name="key2" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 888.0
+offset_top = 510.0
+offset_right = 914.0
+offset_bottom = 522.0
+
+[node name="cube" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 881.0
+offset_top = 492.0
+offset_right = 923.0
+offset_bottom = 534.0
+
+[node name="door" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 965.0
+offset_top = 191.0
+offset_right = 1084.0
+offset_bottom = 494.0
+
+[node name="door2" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 991.0
+offset_top = 437.0
+offset_right = 1145.0
+offset_bottom = 524.0
+rotation = 0.539307
+
+[node name="keyhole" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 972.0
+offset_top = 356.0
+offset_right = 981.0
+offset_bottom = 370.0
+
+[connection signal="pressed" from="screw" to="." method="_on_screw_pressed" binds= ["b1"]]
+[connection signal="pressed" from="screw2" to="." method="_on_screw_pressed" binds= ["b2"]]
+[connection signal="pressed" from="key2" to="." method="_on_key_2_pressed"]
+[connection signal="pressed" from="cube" to="." method="_on_cube_pressed"]
+[connection signal="pressed" from="door" to="." method="_on_door_pressed"]
+[connection signal="pressed" from="keyhole" to="." method="_on_keyhole_pressed"]
