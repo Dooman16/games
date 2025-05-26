@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3ovl0noom8l2"
+path="res://.godot/imported/DANGANRONPA OST_ -1-16- M.T.B..mp3-bcc575f264adf2ba5da1fce2f1226ea7.mp3str"
+
+[deps]
+
+source_file="res://music/DANGANRONPA OST_ -1-16- M.T.B..mp3"
+dest_files=["res://.godot/imported/DANGANRONPA OST_ -1-16- M.T.B..mp3-bcc575f264adf2ba5da1fce2f1226ea7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

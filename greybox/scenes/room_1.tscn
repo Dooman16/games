@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://s1lsx28jpvw4"]
+[gd_scene load_steps=12 format=3 uid="uid://s1lsx28jpvw4"]
 
 [ext_resource type="Texture2D" uid="uid://dmfsiyiu38a4l" path="res://sprites/room1.png" id="1_0akh5"]
-[ext_resource type="Script" uid="uid://ckscaivosooui" path="res://scenes/room_1.gd" id="1_d0u7m"]
+[ext_resource type="Script" uid="uid://ckscaivosooui" path="res://code/room_1.gd" id="1_d0u7m"]
 [ext_resource type="Texture2D" uid="uid://dt5ujkc1rmwrs" path="res://sprites/room1 decorations1.png" id="2_d0u7m"]
 [ext_resource type="Texture2D" uid="uid://cl2breefon3jk" path="res://sprites/red carpet.png" id="3_3wwl0"]
 [ext_resource type="Texture2D" uid="uid://7qf66o8mw5nj" path="res://sprites/drawer door closed.png" id="4_wy464"]
 [ext_resource type="Texture2D" uid="uid://bm3g1kjdfj3e3" path="res://sprites/rolled carpet.png" id="5_4wlnl"]
 [ext_resource type="Texture2D" uid="uid://d3oqeg32ns8ns" path="res://sprites/drawer door open.png" id="6_k86bo"]
+[ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="8_4wlnl"]
+[ext_resource type="Texture2D" uid="uid://bsdk607lphgt2" path="res://sprites/teenclothe.png" id="9_k86bo"]
+[ext_resource type="Texture2D" uid="uid://bgmvd50v384td" path="res://sprites/teenStick.png" id="10_f05lu"]
+[ext_resource type="AudioStream" uid="uid://8mqktbel8nec" path="res://music/DANGANRONPA OST_ -1-26- Beautiful Morning.mp3" id="11_k86bo"]
 
 [node name="Room1" type="Control"]
 layout_mode = 3
@@ -116,6 +120,7 @@ offset_bottom = 569.0
 [node name="door" type="Button" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 965.0
 offset_top = 191.0
 offset_right = 1084.0
@@ -124,6 +129,7 @@ offset_bottom = 494.0
 [node name="door2" type="Button" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 991.0
 offset_top = 437.0
 offset_right = 1145.0
@@ -138,6 +144,20 @@ offset_left = 970.0
 offset_top = 354.0
 offset_right = 982.0
 offset_bottom = 370.0
+
+[node name="player" parent="." instance=ExtResource("8_4wlnl")]
+position = Vector2(444, 328)
+size = 2
+leftArmAngle = -5
+rightArmAngle = 5
+leftLegAngle = -5
+rightLegAngle = 5
+body = ExtResource("9_k86bo")
+stick = ExtResource("10_f05lu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_k86bo")
+parameters/looping = true
 
 [connection signal="pressed" from="carpet2" to="." method="_on_carpet_2_pressed"]
 [connection signal="pressed" from="drawer" to="." method="_on_drawer_pressed"]

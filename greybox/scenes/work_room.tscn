@@ -1,0 +1,289 @@
+[gd_scene load_steps=15 format=3 uid="uid://biccvkujmth7y"]
+
+[ext_resource type="Texture2D" uid="uid://cnc8uartcxhic" path="res://sprites/workRoom.png" id="1_21waq"]
+[ext_resource type="Script" uid="uid://by4ige35hi80y" path="res://code/work_room.gd" id="1_l3jv6"]
+[ext_resource type="Texture2D" uid="uid://72dsmjonloi8" path="res://sprites/workRoom decorations1.png" id="2_gn4m0"]
+[ext_resource type="Texture2D" uid="uid://gmkwoo4n1o31" path="res://sprites/workRoom decorations 3.png" id="2_tvpdd"]
+[ext_resource type="Texture2D" uid="uid://nx8idst43i7b" path="res://sprites/workRoom green_key.png" id="4_l3jv6"]
+[ext_resource type="Texture2D" uid="uid://ddjte3x6agl60" path="res://sprites/workRoom table.png" id="5_cs4je"]
+[ext_resource type="Texture2D" uid="uid://caqvtj6fmogtc" path="res://sprites/workRoom red_key.png" id="6_5v8u3"]
+[ext_resource type="Texture2D" uid="uid://diineq1rlxjk6" path="res://sprites/workRoom blue_key.png" id="7_8v41e"]
+[ext_resource type="Texture2D" uid="uid://clwwl1esvjhy5" path="res://sprites/workRoom yellow_key.png" id="8_dftxa"]
+[ext_resource type="Texture2D" uid="uid://coamrdtb33p5s" path="res://sprites/workRoom dropped drawboard.png" id="9_j7kri"]
+[ext_resource type="Texture2D" uid="uid://cfpk17fk215i5" path="res://sprites/workRoom decorations2.png" id="10_tw5ia"]
+[ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="12_5v8u3"]
+[ext_resource type="Texture2D" uid="uid://b7bopameb6gtf" path="res://sprites/greybluecloth.png" id="13_8v41e"]
+[ext_resource type="AudioStream" uid="uid://d3ovl0noom8l2" path="res://music/DANGANRONPA OST_ -1-16- M.T.B..mp3" id="14_8v41e"]
+
+[node name="workRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3jv6")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_21waq")
+
+[node name="hide_drawboard" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 5760.0
+offset_bottom = 3240.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tvpdd")
+
+[node name="wall" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_gn4m0")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="greenkey" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 454.0
+offset_right = 876.0
+offset_bottom = 583.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_l3jv6")
+
+[node name="workRoom table" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 5760.0
+offset_bottom = 3240.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_cs4je")
+
+[node name="redkey" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 424.0
+offset_right = 815.0
+offset_bottom = 565.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_5v8u3")
+
+[node name="bluekey" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 84.0
+offset_top = 221.0
+offset_right = 306.0
+offset_bottom = 342.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_8v41e")
+
+[node name="yellowkey" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 16.0
+offset_right = 735.0
+offset_bottom = 137.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_dftxa")
+
+[node name="droppe_rawboard" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 367.0
+offset_right = 946.0
+offset_bottom = 1524.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_j7kri")
+
+[node name="lamp" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 5764.0
+offset_bottom = 3240.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_tw5ia")
+
+[node name="red_key" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 524.0
+offset_top = 422.0
+offset_right = 586.0
+offset_bottom = 455.0
+
+[node name="ending_time" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="table" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 384.0
+offset_top = 400.0
+offset_right = 750.0
+offset_bottom = 493.0
+
+[node name="big_wall" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 233.0
+offset_top = 76.0
+offset_right = 913.0
+offset_bottom = 456.0
+
+[node name="draw_board" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 118.0
+offset_top = 137.0
+offset_right = 129.0
+offset_bottom = 147.0
+
+[node name="lamp_bt" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 455.0
+offset_right = 631.0
+offset_bottom = 95.0
+
+[node name="green_key" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 526.0
+offset_top = 453.0
+offset_right = 599.0
+offset_bottom = 481.0
+
+[node name="blue_key" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 83.0
+offset_top = 220.0
+offset_right = 130.0
+offset_bottom = 246.0
+
+[node name="yellow_key" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 513.0
+offset_top = 15.0
+offset_right = 560.0
+offset_bottom = 41.0
+
+[node name="hide_blue" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 252.0
+offset_top = 88.0
+offset_right = 292.0
+offset_bottom = 128.0
+color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="hide_red" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 853.0
+offset_top = 95.0
+offset_right = 893.0
+offset_bottom = 135.0
+color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="hide_yellow" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 853.0
+offset_top = 392.0
+offset_right = 893.0
+offset_bottom = 432.0
+color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="hide_green" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 253.0
+offset_top = 398.0
+offset_right = 293.0
+offset_bottom = 438.0
+color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="blue_lock" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 254.0
+offset_top = 93.0
+offset_right = 287.0
+offset_bottom = 124.0
+
+[node name="red_lock" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 856.0
+offset_top = 99.0
+offset_right = 889.0
+offset_bottom = 130.0
+
+[node name="green_lock" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 256.0
+offset_top = 403.0
+offset_right = 289.0
+offset_bottom = 434.0
+
+[node name="yellow_lock" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 857.0
+offset_top = 394.0
+offset_right = 891.0
+offset_bottom = 429.0
+
+[node name="player" parent="." instance=ExtResource("12_5v8u3")]
+position = Vector2(1052, 432)
+leftArmAngle = -5
+rightArmAngle = 5
+leftLegAngle = -5
+rightLegAngle = 5
+body = ExtResource("13_8v41e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_8v41e")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="red_key" to="." method="_on_red_key_pressed"]
+[connection signal="pressed" from="table" to="." method="_on_table_pressed"]
+[connection signal="pressed" from="big_wall" to="." method="_on_big_wall_pressed"]
+[connection signal="pressed" from="draw_board" to="." method="_on_draw_board_pressed"]
+[connection signal="pressed" from="lamp_bt" to="." method="_on_lamp_bt_pressed"]
+[connection signal="pressed" from="green_key" to="." method="_on_green_key_pressed"]
+[connection signal="pressed" from="blue_key" to="." method="_on_blue_key_pressed"]
+[connection signal="pressed" from="yellow_key" to="." method="_on_yellow_key_pressed"]
+[connection signal="pressed" from="blue_lock" to="." method="_on_lock_pressed" binds= ["blue"]]
+[connection signal="pressed" from="red_lock" to="." method="_on_lock_pressed" binds= ["red"]]
+[connection signal="pressed" from="green_lock" to="." method="_on_lock_pressed" binds= ["green"]]
+[connection signal="pressed" from="yellow_lock" to="." method="_on_lock_pressed" binds= ["yellow"]]

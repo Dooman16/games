@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw0hks1vgndll"]
+[gd_scene load_steps=13 format=3 uid="uid://dw0hks1vgndll"]
 
-[ext_resource type="Script" uid="uid://dc0icbsbeqn5p" path="res://scenes/baby_room.gd" id="1_ghbtd"]
+[ext_resource type="Script" uid="uid://dc0icbsbeqn5p" path="res://code/baby_room.gd" id="1_ghbtd"]
 [ext_resource type="Texture2D" uid="uid://f1wqdw1hfqa" path="res://sprites/babyRoom.png" id="2_y5ahb"]
 [ext_resource type="Texture2D" uid="uid://d3n3kd03wjwy7" path="res://sprites/babyRoom key.png" id="3_5cefy"]
 [ext_resource type="Texture2D" uid="uid://djwlmhlufwqvm" path="res://sprites/babyRoom decorations1.png" id="4_4nwwi"]
 [ext_resource type="Texture2D" uid="uid://da1hm5jamvvv0" path="res://sprites/babyRoom decorations2.png" id="5_qbxfy"]
+[ext_resource type="Texture2D" uid="uid://b7qw3u2cndqce" path="res://sprites/greyBabyClothe.png" id="6_4nwwi"]
 [ext_resource type="Texture2D" uid="uid://bn444gc27oe1p" path="res://sprites/babyRoom decorations3.png" id="6_nh6mk"]
 [ext_resource type="Texture2D" uid="uid://qvtadr4hcwna" path="res://sprites/babyRoom decorations4.png" id="7_s82gi"]
 [ext_resource type="Texture2D" uid="uid://ch5bquma0e8u" path="res://sprites/keyhole.png" id="8_gsi68"]
+[ext_resource type="Texture2D" uid="uid://dbhx7p33r7v2b" path="res://sprites/babyStick.png" id="8_nh6mk"]
+[ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="9_y5ahb"]
+[ext_resource type="AudioStream" uid="uid://dachljcvh6o7f" path="res://music/DANGANRONPA OST_ -1-04- Beautiful Days.mp3" id="12_qbxfy"]
 
 [node name="babyRoom" type="Control"]
 layout_mode = 3
@@ -36,6 +40,14 @@ offset_right = 5760.0
 offset_bottom = 3240.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_4nwwi")
+
+[node name="player" parent="." instance=ExtResource("9_y5ahb")]
+position = Vector2(261, 365)
+size = 1
+leftLegAngle = 45
+rightLegAngle = 45
+body = ExtResource("6_4nwwi")
+stick = ExtResource("8_nh6mk")
 
 [node name="deco2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -147,6 +159,12 @@ offset_left = 972.0
 offset_top = 356.0
 offset_right = 981.0
 offset_bottom = 370.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_qbxfy")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="screw1" to="." method="_on_screw_pressed" binds= ["1"]]
 [connection signal="pressed" from="screw2" to="." method="_on_screw_pressed" binds= ["2"]]

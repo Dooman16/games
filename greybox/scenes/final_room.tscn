@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://7f7esajn8u63"]
+
+[ext_resource type="Texture2D" uid="uid://c3bxsejvnifsc" path="res://sprites/finalRoom.png" id="1_63fsv"]
+[ext_resource type="Script" uid="uid://b5n35rge8kvrm" path="res://code/final_room.gd" id="1_l5yvb"]
+[ext_resource type="Shader" uid="uid://daaw7qovcj7mr" path="res://scenes/final_room_shader.gdshader" id="3_fqev1"]
+[ext_resource type="AudioStream" uid="uid://brhfvorf86r0s" path="res://music/DANGANRONPA OST_ -2-18- Goodbye, Despair Academy.mp3" id="4_l5yvb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k45ol"]
+shader = ExtResource("3_fqev1")
+shader_parameter/hole_center = Vector2(0.5, 0.5)
+shader_parameter/outer_radius = 0.5
+
+[node name="finalRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5yvb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_63fsv")
+
+[node name="ending timer" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k45ol")
+layout_mode = 0
+offset_left = -620.0
+offset_top = -295.0
+offset_right = 1208.0
+offset_bottom = 1094.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_l5yvb")
+autoplay = true

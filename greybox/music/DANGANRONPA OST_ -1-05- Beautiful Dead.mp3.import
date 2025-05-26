@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1gnrjpn7m84t"
+path="res://.godot/imported/DANGANRONPA OST_ -1-05- Beautiful Dead.mp3-6cb77d3a8bcc58262f85172ad9cdcd87.mp3str"
+
+[deps]
+
+source_file="res://music/DANGANRONPA OST_ -1-05- Beautiful Dead.mp3"
+dest_files=["res://.godot/imported/DANGANRONPA OST_ -1-05- Beautiful Dead.mp3-6cb77d3a8bcc58262f85172ad9cdcd87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

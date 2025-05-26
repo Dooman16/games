@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dirypawh7d3ag"]
 
-[ext_resource type="Script" uid="uid://1ctdwkdxsh50" path="res://menu.gd" id="1_con2f"]
+[ext_resource type="Script" uid="uid://1ctdwkdxsh50" path="res://code/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://dfsxkjdrj64b" path="res://sprites/greyBoxMenu.png" id="2_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://brbgu7wljbays" path="res://sprites/greyBox.png" id="3_4ytvr"]
 
@@ -11,6 +11,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_con2f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.2, 0.2)
@@ -25,6 +26,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_4ytvr")
 
 [node name="greyBox2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = 90.0
 offset_right = 5760.0
 offset_bottom = 3330.0
@@ -32,6 +34,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_4ytvr")
 
 [node name="greyBox3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = 180.0
 offset_right = 5760.0
 offset_bottom = 3420.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brhfvorf86r0s"
+path="res://.godot/imported/DANGANRONPA OST_ -2-18- Goodbye, Despair Academy.mp3-eb408bc2d2dc49db4070c3a06d54bedd.mp3str"
+
+[deps]
+
+source_file="res://music/DANGANRONPA OST_ -2-18- Goodbye, Despair Academy.mp3"
+dest_files=["res://.godot/imported/DANGANRONPA OST_ -2-18- Goodbye, Despair Academy.mp3-eb408bc2d2dc49db4070c3a06d54bedd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
