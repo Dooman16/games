@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7f7esajn8u63"]
+[gd_scene load_steps=7 format=3 uid="uid://7f7esajn8u63"]
 
 [ext_resource type="Texture2D" uid="uid://c3bxsejvnifsc" path="res://sprites/finalRoom.png" id="1_63fsv"]
 [ext_resource type="Script" uid="uid://b5n35rge8kvrm" path="res://code/final_room.gd" id="1_l5yvb"]
 [ext_resource type="Shader" uid="uid://daaw7qovcj7mr" path="res://scenes/final_room_shader.gdshader" id="3_fqev1"]
 [ext_resource type="AudioStream" uid="uid://brhfvorf86r0s" path="res://music/DANGANRONPA OST_ -2-18- Goodbye, Despair Academy.mp3" id="4_l5yvb"]
+[ext_resource type="PackedScene" uid="uid://xl22nfmtarvv" path="res://scenes/game_sttings.tscn" id="5_fqev1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k45ol"]
 shader = ExtResource("3_fqev1")
@@ -42,3 +43,7 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_l5yvb")
 autoplay = true
+
+[node name="game_sttings" parent="." instance=ExtResource("5_fqev1")]
+visible = false
+layout_mode = 1
