@@ -1,6 +1,10 @@
 extends Control
 var screws_down = 0
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("esc"):
+		_pausa()
+
 func _on_screw_pressed(id) -> void:
 	print(id)
 	screws_down +=1
@@ -39,3 +43,7 @@ func _on_keyhole_pressed() -> void:
 
 func _on_door_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/room_1.tscn")
+
+func _pausa():
+	get_tree().paused = !get_tree().paused
+	$game_sttings.visible = get_tree().paused

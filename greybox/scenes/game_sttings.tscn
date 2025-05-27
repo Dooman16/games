@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://xl22nfmtarvv"]
+
+[ext_resource type="PackedScene" uid="uid://b2kp580ey7f4r" path="res://scenes/sttings.tscn" id="1_8hke3"]
+[ext_resource type="Script" uid="uid://cvt6h3ydhdvo4" path="res://code/game_sttings.gd" id="2_q68vj"]
+
+[node name="game_sttings" instance=ExtResource("1_8hke3")]
+process_mode = 3
+script = ExtResource("2_q68vj")
+
+[node name="Button" parent="." index="2"]
+offset_left = 646.0
+offset_top = 265.0
+offset_right = 702.0
+offset_bottom = 296.0
+
+[node name="Button2" type="Button" parent="." index="3"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 265.0
+offset_right = 506.0
+offset_bottom = 296.0
+text = "salir
+"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

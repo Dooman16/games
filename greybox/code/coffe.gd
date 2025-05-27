@@ -4,6 +4,10 @@ var button_list: Array = []
 var correct_list := ["(2,5)","(4,3)","(5,5)","(3,5)","(1,1)"]
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("esc"):
+		_pausa()
+
 func _on_coffe_door_pressed() -> void:
 	$first_letter.show()
 
@@ -50,3 +54,7 @@ func _on_plank_pressed() -> void:
 
 func _on_final_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func _pausa():
+	get_tree().paused = !get_tree().paused
+	$game_sttings.visible = get_tree().paused

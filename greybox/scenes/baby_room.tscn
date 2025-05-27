@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dw0hks1vgndll"]
+[gd_scene load_steps=14 format=3 uid="uid://dw0hks1vgndll"]
 
 [ext_resource type="Script" uid="uid://dc0icbsbeqn5p" path="res://code/baby_room.gd" id="1_ghbtd"]
 [ext_resource type="Texture2D" uid="uid://f1wqdw1hfqa" path="res://sprites/babyRoom.png" id="2_y5ahb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhx7p33r7v2b" path="res://sprites/babyStick.png" id="8_nh6mk"]
 [ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="9_y5ahb"]
 [ext_resource type="AudioStream" uid="uid://dachljcvh6o7f" path="res://music/DANGANRONPA OST_ -1-04- Beautiful Days.mp3" id="12_qbxfy"]
+[ext_resource type="PackedScene" uid="uid://xl22nfmtarvv" path="res://scenes/game_sttings.tscn" id="13_nh6mk"]
 
 [node name="babyRoom" type="Control"]
 layout_mode = 3
@@ -165,6 +166,10 @@ stream = ExtResource("12_qbxfy")
 volume_db = 10.0
 autoplay = true
 parameters/looping = true
+
+[node name="game_sttings" parent="." instance=ExtResource("13_nh6mk")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="screw1" to="." method="_on_screw_pressed" binds= ["1"]]
 [connection signal="pressed" from="screw2" to="." method="_on_screw_pressed" binds= ["2"]]

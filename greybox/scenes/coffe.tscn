@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp383p4e73kc8"]
+[gd_scene load_steps=9 format=3 uid="uid://bp383p4e73kc8"]
 
 [ext_resource type="Texture2D" uid="uid://dae7sbt6qb0dy" path="res://sprites/coffeRoom.png" id="1_25b8a"]
 [ext_resource type="Script" uid="uid://jbde3gwlssto" path="res://code/coffe.gd" id="1_gylp1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c557i2u27wbw7" path="res://sprites/coffeRoom decorations3.png" id="4_4ffup"]
 [ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="6_8cuxv"]
 [ext_resource type="AudioStream" uid="uid://d1gnrjpn7m84t" path="res://music/DANGANRONPA OST_ -1-05- Beautiful Dead.mp3" id="7_4ffup"]
+[ext_resource type="PackedScene" uid="uid://xl22nfmtarvv" path="res://scenes/game_sttings.tscn" id="8_uvrrv"]
 
 [node name="Coffe" type="Control"]
 layout_mode = 3
@@ -314,6 +315,10 @@ rightLegAngle = 5
 stream = ExtResource("7_4ffup")
 autoplay = true
 parameters/looping = true
+
+[node name="game_sttings" parent="." instance=ExtResource("8_uvrrv")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="coffe_door" to="." method="_on_coffe_door_pressed"]
 [connection signal="pressed" from="green_door" to="." method="_on_green_door_pressed"]

@@ -3,6 +3,10 @@ extends Control
 var locks_unlocked := 0
 var yellow_unlocked : bool = false
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("esc"):
+		_pausa()
+
 func _on_red_key_pressed() -> void:
 	$redkey.hide()
 	$red_key.hide()
@@ -78,3 +82,7 @@ func _on_lock_pressed(color : String) -> void:
 	locks_unlocked += 1
 	if locks_unlocked == 4:
 		$big_wall.show()
+
+func _pausa():
+	get_tree().paused = !get_tree().paused
+	$game_sttings.visible = get_tree().paused
