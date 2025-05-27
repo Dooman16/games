@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biccvkujmth7y"]
+[gd_scene load_steps=16 format=3 uid="uid://biccvkujmth7y"]
 
 [ext_resource type="Texture2D" uid="uid://cnc8uartcxhic" path="res://sprites/workRoom.png" id="1_21waq"]
 [ext_resource type="Script" uid="uid://by4ige35hi80y" path="res://code/work_room.gd" id="1_l3jv6"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cugdj5hfbsory" path="res://scenes/player.tscn" id="12_5v8u3"]
 [ext_resource type="Texture2D" uid="uid://b7bopameb6gtf" path="res://sprites/greybluecloth.png" id="13_8v41e"]
 [ext_resource type="AudioStream" uid="uid://d3ovl0noom8l2" path="res://music/DANGANRONPA OST_ -1-16- M.T.B..mp3" id="14_8v41e"]
+[ext_resource type="PackedScene" uid="uid://xl22nfmtarvv" path="res://scenes/game_sttings.tscn" id="15_dftxa"]
 
 [node name="workRoom" type="Control"]
 layout_mode = 3
@@ -274,6 +275,10 @@ body = ExtResource("13_8v41e")
 stream = ExtResource("14_8v41e")
 autoplay = true
 parameters/looping = true
+
+[node name="game_sttings" parent="." instance=ExtResource("15_dftxa")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="red_key" to="." method="_on_red_key_pressed"]
 [connection signal="pressed" from="table" to="." method="_on_table_pressed"]

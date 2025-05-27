@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kp580ey7f4r"]
+
+[ext_resource type="Script" uid="uid://bf346wb1f5jen" path="res://code/sttings.gd" id="1_32km7"]
+
+[node name="sttings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_32km7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 326.0
+offset_top = 130.0
+offset_right = 826.0
+offset_bottom = 330.0
+color = Color(0.194349, 0.194349, 0.194349, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 336.0
+offset_top = 160.0
+offset_right = 816.0
+offset_bottom = 277.0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="master" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 285.0
+offset_right = 604.0
+offset_bottom = 316.0
+text = "cerrar
+"
+
+[connection signal="value_changed" from="VBoxContainer/master" to="." method="_on_master_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

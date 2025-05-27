@@ -13,3 +13,9 @@ func _process(delta):
 	mask_rect.material.set_shader_parameter("outer_radius", new_radius)
 	if ending_time.is_stopped():
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	if Input.is_action_pressed("esc"):
+		_pausa()
+
+func _pausa():
+	get_tree().paused = !get_tree().paused
+	$game_sttings.visible = get_tree().paused
